@@ -2,21 +2,31 @@ body {
     margin: 0;
     overflow: hidden;
     background-color: #000;
-}
-.logo {
-    position: absolute;
-    width: 300px;
-    opacity: 0;
-}
-#poudlard {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    cursor: none;
+    background-image: url("assets/hogwart.jpg");
+    background-size: cover;
 }
 
 .custom-cursor {
     position: absolute;
     pointer-events: none;
     z-index: 9999;
+}
+.blue-ball {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(29, 54, 210, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #00f, 0 0 50px #00ffd9;
+}
+.sparkles {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.5) 25%, transparent 25%),
+    radial-gradient(rgba(255, 255, 255, 0.5) 25%, transparent 25%);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
     opacity: 0;
 }

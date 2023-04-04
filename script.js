@@ -1,52 +1,52 @@
-  // Sélectionnez les éléments à animer
-  const poudlard = document.getElementById("poudlard");
+const customCursor = document.getElementById("magicCursor");
+const blueBall = document.getElementById("blueBall");
+const sparkles = document.getElementById("sparkles");
 
-  // Créez une timeline GSAP
-  const tl = gsap.timeline();
+function moveCursor(e) {
+    gsap.to(customCursor, {
+        duration: 0.3,
+        x: e.clientX,
+        y: e.clientY,
+        ease: "power2.out"
+    });
+}
 
-  // Ajoutez des animations à la timeline
-  tl.from(poudlard, {duration: 1, scale: 0, opacity: 0})
-    .to(poudlard, {duration: 1, opacity: 1, delay: 1})
-    .to(poudlard, {duration: 1, scale: 1.2, ease: "power2.inOut", yoyo: true, repeat: 1, delay: 1})
-    .to(poudlard, {duration: 1, opacity: 0, delay: 1, onComplete: () => {
-        // Redirigez vers une autre page ou lancez la prochaine animation/interaction
-        window.location.href = "chemin_vers_votre_prochaine_page.html";
-    }})
+function showCursor() {
+    gsap.to(customCursor, {
+        duration: 0.3,
+        opacity: 1,
+        ease: "power2.out"
+    });
 
-  // Ajoutez ceci après la déclaration de votre timeline GSAP
-  const customCursor = document.getElementById("baguette");
+    gsap.to(sparkles, {
+        duration: 0.6,
+        opacity: 1,
+        scale: 1.5,
+        ease: "power2.out",
+        repeat: -1,
+        yoyo: true
+    });
+}
 
-  function moveCursor(e) {
-      gsap.to(customCursor, {
-          duration: 0.3,
-          x: e.clientX,
-          y: e.clientY,
-          ease: "power2.out"
-      });
-  }
+function hideCursor() {
+    gsap.to(customCursor, {
+        duration: 0.3,
+        opacity: 0,
+        ease: "power2.out"
+    });
 
-  function showCursor() {
-      gsap.to(customCursor, {
-          duration: 0.3,
-          opacity: 1,
-          ease: "power2.out"
-      });
-  }
+    gsap.to(sparkles, {
+        duration: 0.3,
+        opacity: 0,
+        scale: 1,
+        ease: "power2.out"
+    });
+}
 
-  function hideCursor() {
-      gsap.to(customCursor, {
-          duration: 0.3,
-          opacity: 0,
-          ease: "power2.out"
-      });
-  }
+// Événements pour gérer l'apparition, la disparition et le mouvement du curseur personnalisé
+document.addEventListener("mousemove", moveCursor);
+document.addEventListener("mouseleave", hideCursor);
 
-  // Événements pour gérer l'apparition, la disparition et le mouvement du curseur personnalisé
-  document.addEventListener("mousemove", moveCursor);
-  document.addEventListener("mouseenter", showCursor);
-  document.addEventListener("mouseleave", hideCursor);
+// Cachez le curseur par défaut
+document.body.style.cursor = "none";
 
-  // Cachez le curseur par défaut
-  document.body.style.cursor = "none";
-
-    
