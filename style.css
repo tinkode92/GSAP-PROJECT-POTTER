@@ -13,3 +13,10 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.custom-cursor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+}
