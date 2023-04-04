@@ -1,3 +1,7 @@
+* {
+    cursor: none;
+}
+
 body {
     margin: 0;
     overflow: hidden;
@@ -5,6 +9,8 @@ body {
     cursor: none;
     background-image: url("assets/hogwart.jpg");
     background-size: cover;
+    animation: anim 1.5s ease-in-out;
+
 }
 
 .custom-cursor {
@@ -16,17 +22,38 @@ body {
     position: absolute;
     width: 32px;
     height: 32px;
-    background-color: rgba(29, 54, 210, 0.7);
+    background-color: rgba(29, 54, 210, 0.8);
     border-radius: 50%;
     box-shadow: 0 0 20px #00f, 0 0 50px #00ffd9;
 }
-.sparkles {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.5) 25%, transparent 25%),
-    radial-gradient(rgba(255, 255, 255, 0.5) 25%, transparent 25%);
-    background-size: 8px 8px;
-    background-position: 0 0, 4px 4px;
-    opacity: 0;
+
+h1 {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    height: 100vh;
+    font-size: 7rem;
+    color: aliceblue;
+    text-transform: uppercase;
+    font-family: "Bauhaus 93", sans-serif;
+    font-weight: 400;
+}
+
+.line {
+    clip-path: polygon(0 0, 100% 0, 100% 76%, 0 76%);
+
+}
+
+.char {
+    transform: translateY(115px);
+    transition: transform .5s;
+}
+
+@keyframes anim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
