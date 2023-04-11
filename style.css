@@ -4,12 +4,15 @@
 
 body {
     margin: 0;
-    overflow: hidden;
     background-color: #000;
     cursor: none;
     background-image: url("assets/hogwart.jpg");
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     animation: anim 1.5s ease-in-out;
+    color: white;
+    font-family: "Bauhaus 93", sans-serif;
+    font-weight: 400;
 
 }
 
@@ -28,10 +31,6 @@ body {
 }
 
 h1 {
-    display: grid;
-    place-content: center;
-    place-items: center;
-    height: 100vh;
     font-size: 7rem;
     color: aliceblue;
     text-transform: uppercase;
@@ -39,9 +38,15 @@ h1 {
     font-weight: 400;
 }
 
+.center{
+    display: grid;
+    place-content: center;
+    place-items: center;
+    height: 100dvh;
+}
+
 .line {
     clip-path: polygon(0 0, 100% 0, 100% 76%, 0 76%);
-
 }
 
 .char {
@@ -56,4 +61,45 @@ h1 {
     100% {
         opacity: 1;
     }
+}
+
+.section-2 {
+    background-size: cover;
+    height: 100vh;
+    cursor: default !important;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    position: relative;
+}
+
+.presentation {
+    font-size: 32px;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    filter: brightness(80%);
+    cursor: default !important;
+}
+
+.btn {
+    padding: 3px 4px;
+    border-radius: 12px;
+    color: white;
+    background: black;
+    border: 2px solid white;
+    cursor: pointer;
 }
